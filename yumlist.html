@@ -1,0 +1,84 @@
+{%extends 'base.html'%}
+
+{%block title%}All Yums{%endblock%}
+
+{%block content%}
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		table,td,th{
+			border: 1px solid red;
+		}
+		table{
+			border-collapse: collapse;
+			width: 80%;
+			
+		}
+		th{
+			height: 50px;
+		}
+	</style>
+</head>
+
+<h1 align="center" style="color: crimson;">All Yums<h1>
+	<table align="center">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Created at</th>
+				<th>Updated at</th>
+				<th>Edit/Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for yum in yums%}
+			<tr>
+				<td>{{yum.title}}</td>
+
+				<td>{{yum.description}}</td>
+
+				<td>{{yum.created_at}}</td>
+
+				<td>{{yum.updated_at}}</td>
+				<td>
+					<a href="{%url 'yum:yumedit' yum.id%}">
+					<button class="btn btn-warning">Edit</button>
+				</a>
+				<a href="{%url 'yum:yumdelete' yum.id%}">
+					<button class="btn btn-danger">Delete</button>
+				</a>
+				</td>
+			</tr>
+			{%endfor%}
+
+		</tbody>
+
+	</table>
+	<br><br>
+	<p align="center" style="font-size: 18px;">Note:This page contain the list of yum ,the table here can find the datas ,what are all you have saved ,and also you can view when the data is created and updated if needed you can delete it.....</p>
+<br>
+<br>
+
+
+<div>
+    <nav class="navbar navbar-dark bg-dark  " style="font-size: 14px; font-family: serif;  height: 75px; background-color: #07203a!important;">
+        
+        <a class="navbar-brand test1"  href="{%url 'home'%}" style="color: blue;">Help</a>
+        <a class="navbar-brand test2"  href="{%url 'home'%}" style="color: blue;"><i class="fa fa-phone"></i></i>+91 6262474111</a>
+
+        <a class="navbar-brand test3"  href="{%url 'home'%}" style="color: blue;"><i class="fa fa-envelope"></i>livewireindore@gmail.com</a>
+
+
+	</div>
+	
+
+{%endblock%}
+					
+					
+					
+					
+					
+					
+					
+					
